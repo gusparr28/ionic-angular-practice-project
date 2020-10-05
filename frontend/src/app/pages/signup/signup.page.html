@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot='start'>
+      <ion-back-button defaultHref='/signin'></ion-back-button>
+    </ion-buttons>
+    <ion-title>Sign Up</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>Username</ion-label>
+      <ion-input type='text' [(ngModel)]='username'></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Password</ion-label>
+      <ion-input type='password' [(ngModel)]='password'></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Verify Password</ion-label>
+      <ion-input type='password' [(ngModel)]='rePassword'></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Date</ion-label>
+      <ion-datetime displayFormat='MM DD YY' [(ngModel)]='date'></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>Gender</ion-label>
+      <ion-select [(ngModel)]='gender'>
+        <ion-select-option value='Female'>Female</ion-select-option>
+        <ion-select-option value='Male'>Male</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-button (click)='signUp()' [disabled]='!username || !password || !rePassword || !date || !gender'>
+    Sign Up
+  </ion-button>
+</ion-content>
