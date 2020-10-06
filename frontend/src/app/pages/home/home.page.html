@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Personal info</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-label>Username</ion-label>
+      <ion-button (click)='editUsername()'>Edit username</ion-button>
+      <ion-input type='text' [(ngModel)]='username' [disabled]='usernameInput'></ion-input>
+      <ion-label>Gender</ion-label>
+      <ion-input type='text' [(ngModel)]='gender' disabled></ion-input>
+      <ion-label>Age</ion-label>
+      <ion-input type='text' [(ngModel)]='age' disabled></ion-input>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color='danger' (click)='editInfo()' [disabled]='!username'>
+      <ion-icon [name]="fabButtonIcon"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

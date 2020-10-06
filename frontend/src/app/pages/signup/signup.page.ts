@@ -1,5 +1,4 @@
-import { ThrowStmt } from '@angular/compiler';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { ModalPage } from '../modal/modal.page';
 
@@ -8,7 +7,7 @@ import { ModalPage } from '../modal/modal.page';
   templateUrl: './signup.page.html',
   styleUrls: ['./signup.page.scss'],
 })
-export class SignupPage implements OnInit {
+export class SignupPage implements OnDestroy {
 
   username: String
   password: String;
@@ -18,8 +17,12 @@ export class SignupPage implements OnInit {
 
   constructor(public modalController: ModalController) { }
 
-  ngOnInit() {
-
+  ngOnDestroy() {
+    this.username = '';
+    this.password = '';
+    this.rePassword = '';
+    this.date = '';
+    this.gender = '';
   };
 
   signUp() {
@@ -27,11 +30,6 @@ export class SignupPage implements OnInit {
     if (this.password != this.rePassword) {
       this.presentModal();
     };
-    this.username = '';
-    this.password = '';
-    this.rePassword = '';
-    this.date = '';
-    this.gender = '';
   };
 
   async presentModal() {
